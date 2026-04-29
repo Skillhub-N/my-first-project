@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Navigation with Login</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+        }
+
+     
+        .navbar {
+            background-color: #333;
+            padding: 10px;
+        }
+
+        .navbar a {
+            color: white;
+            margin: 10px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .navbar a:hover {
+            background-color: orange;
+            padding: 5px;
+        }
+
+  
+        .section {
+            display: none;
+            padding: 20px;
+        }
+
+        #home {
+            display: block;
+            text-align: center;
+        }
+
+        
+        .login-box {
+            width: 300px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid gray;
+            text-align: center;
+        }
+
+        input {
+            width: 90%;
+            padding: 8px;
+        }
+
+        button {
+            padding: 8px 15px;
+            background-color: green;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="navbar">
+        <a onclick="showSection('home')">Home</a>
+        <a onclick="showSection('insert')">Insert</a>
+        <a onclick="showSection('contact')">Contact</a>
+        <a onclick="showSection('login')">Login</a>
+    </div>
+
+   
+    <div id="home" class="section">
+        <h1>Home Page</h1>
+        <p>Welcome to website</p>
+    </div>
+
+   
+    <div id="insert" class="section">
+        <h1>Insert Page</h1>
+        <p>Insert content here</p>
+    </div>
+
+    <    <div id="contact" class="section">
+        <h1>Contact Page</h1>
+        <p>Contact details here</p>
+    </div>
+
+    <div id="login" class="section">
+        <div class="login-box">
+            <h2>Login</h2>
+
+            <input type="text" id="userid" placeholder="Enter User ID"><br><br>
+            <input type="password" id="password" placeholder="Enter Password"><br><br>
+
+            <button onclick="login()">Submit</button>
+        </div>
+    </div>
+
+    <script>
+        function showSection(id) {
+            let sections = document.getElementsByClassName("section");
+
+            for (let i = 0; i < sections.length; i++) {
+                sections[i].style.display = "none";
+            }
+
+            document.getElementById(id).style.display = "block";
+        }
+
+        function login() {
+            let user = document.getElementById("userid").value;
+            let pass = document.getElementById("password").value;
+
+            if (user == "admin" && pass == "1234") {
+                alert("Login Successful");
+            } else {
+                alert("Invalid Login");
+            }
+        }
+    </script>
+
+</body>
+</html>
